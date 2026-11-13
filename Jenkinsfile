@@ -24,6 +24,18 @@ pipeline {
             }
         }
 
+
+
+
+
+
+
+        stage('Build') {
+            steps {
+                echo 'Building Maven application...'
+                sh 'mvn -f maven-demo/pom.xml clean package'
+             }
+           }
         stage('Validation') {
             steps {
                 echo 'Validating project files...'
