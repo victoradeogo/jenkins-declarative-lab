@@ -1,6 +1,12 @@
 
 pipeline {
     agent any
+   
+    environment {
+        APP_NAME = 'maven-demo'
+        BUILD_TOOL = 'Maven'
+        DEPLOY_ENV = 'testing'
+    }
 
     options {
         timestamps()
