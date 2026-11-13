@@ -43,14 +43,20 @@ pipeline {
 
 
         stage('Build') {
+             environment {
+                 BUILD_MESSAGE = 'Building the application'
+             }
             steps {
                 echo 'Building Maven application...'
+                echo "${env.BUILD_MESSAGE}"
+                sh 'echo "Shell message: $BUILD_MESSAGE"'
                 sh 'mvn -f maven-demo/pom.xml clean package'
              }
            }
         stage('Validation') {
             steps {
                 echo 'Validating project files...'
+                echo "Build message in Validation: ${env.BUILD_MESSAGE}"
                 sh 'test -f README.md'
                 echo 'README file found successfully!'
             }
