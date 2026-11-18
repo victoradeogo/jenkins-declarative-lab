@@ -52,4 +52,5 @@ pipeline {
             echo 'Pipeline execution has finished.'
         }
     }
+  }
 }
