@@ -17,6 +17,8 @@ pipeline {
          
             steps {
                 echo 'Building Maven application...'
+                sh ''' cd maven-demo
+                       mvn package'''
               
              }
            }
