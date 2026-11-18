@@ -1,8 +1,7 @@
 
 pipeline {
     agent any
-    environmnet{ APP_NAME = 'Jenkins-training-app'
-                BUILD_ENV = 'development'
+    
     }
 
     stages {
@@ -25,35 +24,26 @@ pipeline {
             }
         }
 
-        stage('Display configurations') {
+        stage('Build') {
             steps {
-                echo 'Application: ${APP_NAME}'
-                echo 'Environment: ${BUILD_ENV}
-                sh 'echo "Running on : ${hostname}"'
+                echo 'this is the build stage'
+                
             }
         }
       
-        stage('Build simulation') {
-        environment{
-            BUILD_STAGE = 'simulation' }
+        stage('Test') {
         
             steps {
-                echo 'Application: ${APP_NAME}'
-                echo 'Current build stage: ${BUILD_STAGE}'
-                echo 'Build stage going on ....'
-            sh ' echo "Build simulation successful..."'
+                echo 'This is the test stage'
+                
             }
         }
 
-      stage('Build simulation') {
-        environment{
-            BUILD_STAGE = 'Test' }
+      stage('Package') {
         
             steps {
-                echo 'Application: ${APP_NAME}'
-                echo 'Current stage: ${BUILD_STAGE}'
-                echo 'Preparing to test application....'
-                sh ' echo "Test successful...."'
+                echo 'This is the package stage'
+            
             }
         }
 
