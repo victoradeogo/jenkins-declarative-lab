@@ -39,18 +39,5 @@ pipeline {
             }
         }
 
-      post {
-        success {
-            echo 'Congratulations! Pipeline completed successfully.'
-        }
-
-        failure {
-            echo 'Pipeline failed. Check the console output.'
-        }
-
-        always {
-            echo 'Pipeline execution has finished.'
-        }
     }
-  }
 }
