@@ -10,12 +10,7 @@ pipeline {
             }
         }
 
-        stage('checkout') {
-            steps {
-                 echo 'Checking out from scm'
-              
-            }
-        }
+       
 
 
         stage('Build') {
