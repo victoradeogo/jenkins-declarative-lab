@@ -33,7 +33,8 @@ pipeline {
             
             }
         }
-    
+    }
+   
     post{
          success{echo 'congratulations, your pipeline was successful'
         } 
@@ -43,5 +44,5 @@ pipeline {
      }
 
  }     
- }
+ 
 }
