@@ -18,7 +18,8 @@ pipeline {
             steps {
                 echo 'Building Maven application...'
                 sh ''' cd maven-demo
-                       mvn package'''
+                       mvn clean package -DskipTests
+                       ls -lh target/*.jar '''
               
              }
            }
