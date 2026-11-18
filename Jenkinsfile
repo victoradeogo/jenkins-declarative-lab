@@ -34,5 +34,14 @@ pipeline {
             }
         }
 
-    }
+      post{
+         success{echo 'congratulations, your pipeline was successful'
+        } 
+         failure{echo 'Your pipeline failed, check your pipeline script'}
+         always{echo 'End of pipeline'
+       }
+     }
+
+        
+}
 }
