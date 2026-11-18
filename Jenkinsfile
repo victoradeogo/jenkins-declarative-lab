@@ -1,9 +1,8 @@
 
 pipeline {
     agent any
-
-    options {
-        timestamps()
+    environmnet{ APP_NAME = 'Jenkins-training-app'
+                BUILD_ENV = 'development'
     }
 
     stages {
@@ -14,7 +13,9 @@ pipeline {
             }
         }
 
-        stage('Environment Check') {
+   
+      
+       stage('Environment Check') {
             steps {
                 echo 'Checking the build environment...'
                 sh 'git --version'
@@ -24,14 +25,43 @@ pipeline {
             }
         }
 
-        stage('Validation') {
+        stage('Display configurations') {
             steps {
-                echo 'Validating project files...'
-                sh 'test -f README.md'
-                echo 'README file found successfully!'
+                echo 'Application: ${APP_NAME}'
+                echo 'Environment: ${BUILD_ENV}
+                sh 'echo "Running on : ${hostname}"'
             }
         }
-    }
+      
+        stage('Build simulation') {
+        environment{
+            BUILD_STAGE = 'simulation' }
+        
+            steps {
+                echo 'Application: ${APP_NAME}'
+                echo 'Current build stage: ${BUILD_STAGE}'
+                echo 'Build stage going on ....'
+            sh ' echo "Build simulation successful..."'
+            }
+        }
+
+      stage('Build simulation') {
+        environment{
+            BUILD_STAGE = 'Test' }
+        
+            steps {
+                echo 'Application: ${APP_NAME}'
+                echo 'Current stage: ${BUILD_STAGE}'
+                echo 'Preparing to test application....'
+                sh ' echo "Test successful...."'
+            }
+        }
+
+
+
+
+
+      
 
     post {
         success {
