@@ -19,7 +19,7 @@ pipeline {
                 echo 'Building Maven application...'
                 sh ''' cd maven-demo
                        mvn clean compile
-                       ls -lh target/*.jar '''
+                        '''
               
              }
            }
@@ -47,8 +47,10 @@ pipeline {
         } 
          failure{echo 'Your pipeline failed, check your pipeline script'}
        
-         always{echo 'End of pipeline'
-         junit 'maven-demo/target/surefire-reports/TEST-*.xml'
+         always{junit 'maven-demo/target/surefire-reports/TEST-*.xml'
+             
+             echo 'End of pipeline'
+         
      }
 
  }     
