@@ -11,6 +11,6 @@ class AppTest {
 
         String result = app.getGreeting();
 
-        assertEquals("Hello from Maven and Jenkins!", result);
+       assertEquals("Hello from Jenkins Pipeline!", result);
     }
 }
