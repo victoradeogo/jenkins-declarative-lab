@@ -18,7 +18,7 @@ pipeline {
             steps {
                 echo 'Building Maven application...'
                 sh ''' cd maven-demo
-                       mvn clean package -DskipTests
+                       mvn clean compile
                        ls -lh target/*.jar '''
               
              }
@@ -26,6 +26,8 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing the application...'
+                sh ''' cd maven-demo
+                       mvn test '''
             
             }
          }
@@ -33,6 +35,8 @@ pipeline {
        stage('Package') {
             steps {
                 echo 'packaging the application...'
+                sh ''' cd maven-demo
+                   mvn package -DskipTests '''
             
             }
         }
@@ -42,6 +46,7 @@ pipeline {
          success{echo 'congratulations, your pipeline was successful'
         } 
          failure{echo 'Your pipeline failed, check your pipeline script'}
+         junit 'maven-demo/target/surefire-reports/TEST-*.xml'
          always{echo 'End of pipeline'
        
      }
