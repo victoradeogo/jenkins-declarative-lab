@@ -46,9 +46,9 @@ pipeline {
          success{echo 'congratulations, your pipeline was successful'
         } 
          failure{echo 'Your pipeline failed, check your pipeline script'}
-         junit 'maven-demo/target/surefire-reports/TEST-*.xml'
-         always{echo 'End of pipeline'
        
+         always{echo 'End of pipeline'
+         junit 'maven-demo/target/surefire-reports/TEST-*.xml'
      }
 
  }     
