@@ -23,6 +23,13 @@ pipeline {
            echo "Selected deployment environment: ${params.APP_ENV}"
              }
            }
+        stage('Show Environment Variables') {
+          steps {
+           echo "Application Name: ${env.APP_NAME}"
+           echo "Application Version: ${env.APP_VERSION}"
+           echo "Build Tool: ${env.BUILD_TOOL}"
+             }
+           }
         stage('Checkout') {
             steps {
                 echo 'Checking out source code...'
