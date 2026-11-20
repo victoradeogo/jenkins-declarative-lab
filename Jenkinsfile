@@ -106,7 +106,9 @@ pipeline {
         } 
          failure{echo 'Your pipeline failed, check your pipeline script'
             }
-                
+          unstable {
+          echo 'WARNING: Your pipeline is unstable. Please investigate.'
+           }      
                 
          }     
  
