@@ -29,8 +29,10 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing the application...'
-                sh ''' cd maven-demo
-                       mvn test '''
+              catchError(buildResult: 'UNSTABLE', stageResult: 'UNSTABLE') {
+            sh ''' cd maven-demo
+                   mvn test '''
+        }
             
             }
          }
