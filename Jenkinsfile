@@ -9,8 +9,9 @@ pipeline {
         )
       }
     environment {
-    APP_NAME = 'maven-demo'
-    APP_VERSION = '1.0-SNAPSHOT'
+        APP_NAME = 'maven-demo'
+        APP_VERSION = '1.0-SNAPSHOT'
+        BUILD_TOOL = 'Maven'
        }
     options {
     skipStagesAfterUnstable()
