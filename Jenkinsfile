@@ -38,8 +38,9 @@ pipeline {
                 echo 'Starting operation...'
                 error 'Simulated application error!'
                  } catch (err) {
-                echo "An error was caught: ${err}"
-                }
+                 echo "Error caught: ${err}"
+                  throw err
+                  }
              }
             }
           }
