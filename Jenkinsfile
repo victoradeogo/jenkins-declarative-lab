@@ -30,6 +30,19 @@ pipeline {
            echo "Build Tool: ${env.BUILD_TOOL}"
              }
            }
+
+        stage('Error Handling Demo') {
+          steps {
+            script {
+              try {
+                echo 'Starting operation...'
+                error 'Simulated application error!'
+                 } catch (err) {
+                echo "An error was caught: ${err}"
+                }
+             }
+            }
+          }
         stage('Checkout') {
             steps {
                 echo 'Checking out source code...'
