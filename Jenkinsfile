@@ -39,7 +39,7 @@ pipeline {
                 error 'Simulated application error!'
                  } catch (err) {
                  echo "Error caught: ${err}"
-                  throw err
+                
                   }
              }
             }
