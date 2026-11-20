@@ -80,7 +80,17 @@ pipeline {
            echo 'Deploying application to development environment...'
        }
       }
-    }
+        stage('Deploy to Production') {
+            when {
+              expression {
+              params.APP_ENV == 'production'
+             }
+          }
+        steps {
+          echo 'Deploying application to production environment...'
+        }
+       }
+      }
    
     post{
       
