@@ -45,7 +45,7 @@ pipeline {
     post{
       
        
-         alway {junit 'maven-demo/target/surefire-reports/TEST-*.xml'
+         always {junit 'maven-demo/target/surefire-reports/TEST-*.xml'
          archiveArtifacts artifacts: 'maven-demo/target/*.jar', fingerprint: true 
          echo 'End of pipeline'
                }
