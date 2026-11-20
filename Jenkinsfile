@@ -13,6 +13,11 @@ pipeline {
 }
    
     stages {
+        stage('Show Configuration') {
+          steps {
+           echo "Selected deployment environment: ${params.APP_ENV}"
+             }
+           }
         stage('Checkout') {
             steps {
                 echo 'Checking out source code...'
