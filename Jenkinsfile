@@ -51,11 +51,13 @@ pipeline {
       
        
          always {junit 'maven-demo/target/surefire-reports/TEST-*.xml'
-         archiveArtifacts artifacts: 'maven-demo/target/*.jar', fingerprint: true 
+        
          echo 'End of pipeline'
                }
             
-         success {echo 'congratulations, your pipeline was successful'
+         success {
+             archiveArtifacts artifacts: 'maven-demo/target/*.jar', fingerprint: true 
+             echo 'congratulations, your pipeline was successful'
         } 
          failure{echo 'Your pipeline failed, check your pipeline script'
             }
