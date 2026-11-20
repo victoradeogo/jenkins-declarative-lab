@@ -69,6 +69,17 @@ pipeline {
             
             }
         }
+
+        stage('Deploy to Development') {
+          when {
+            expression {
+            params.APP_ENV == 'development'
+           }
+        }
+          steps {
+           echo 'Deploying application to development environment...'
+       }
+      }
     }
    
     post{
