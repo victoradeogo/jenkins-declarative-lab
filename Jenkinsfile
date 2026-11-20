@@ -1,6 +1,13 @@
 
 pipeline {
     agent any
+     parameters {
+        choice(
+            name: 'APP_ENV',
+            choices: ['development', 'testing', 'production'],
+            description: 'Select the deployment environment'
+        )
+    }
     options {
     skipStagesAfterUnstable()
 }
