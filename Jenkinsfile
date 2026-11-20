@@ -43,15 +43,22 @@ pipeline {
     }
    
     post{
-         success{echo 'congratulations, your pipeline was successful'
-        } 
-         failure{echo 'Your pipeline failed, check your pipeline script'}
+      
        
-         always{junit 'maven-demo/target/surefire-reports/TEST-*.xml'
-             
-             echo 'End of pipeline'
+         alway {junit 'maven-demo/target/surefire-reports/TEST-*.xml'
+         archiveArtifacts artifacts: 'maven-demo/target/*.jar', fingerprint: true 
+         echo 'End of pipeline'
+               }
+            
+         success {echo 'congratulations, your pipeline was successful'
+        } 
+         failure{echo 'Your pipeline failed, check your pipeline script'
+            }
+                
+                
+              
          
-     }
+     
 
  }     
  
