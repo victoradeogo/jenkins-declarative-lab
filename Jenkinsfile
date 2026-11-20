@@ -7,10 +7,14 @@ pipeline {
             choices: ['development', 'testing', 'production'],
             description: 'Select the deployment environment'
         )
-    }
+      }
+    environment {
+    APP_NAME = 'maven-demo'
+    APP_VERSION = '1.0-SNAPSHOT'
+       }
     options {
     skipStagesAfterUnstable()
-}
+       }
    
     stages {
         stage('Show Configuration') {
