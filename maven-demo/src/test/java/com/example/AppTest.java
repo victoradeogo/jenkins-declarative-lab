@@ -10,6 +10,6 @@ class AppTest {
         App app = new App();
 
         String result = app.getGreeting();
-    assertEquals("Hello from Jenkins Pipeline!", result);
+    assertEquals("Hello from Maven and Jenkins!", result);
     }
 }
